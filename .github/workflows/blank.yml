@@ -2,13 +2,18 @@ name: Build on Tag Push for Release Branches
 
 on:
   push:
-    tags: 
+    # Trigger on any tags pushed to the repository
+    tags:
+      - 'v*'         # Matches tags like v1.0.0, v1.1.0, etc.
       - 'release/*'  # Matches tags like release/v1.0.0, release/v2.0.0
 
 jobs:
   build:
     runs-on: self-hosted
+
+    steps:
+
+
       - name: Print the Tag Triggered
         run: |
-          echo "testing taasg"
-
+          echo "Tag Triggered"
