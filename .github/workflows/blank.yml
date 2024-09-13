@@ -10,5 +10,5 @@ jobs:
     runs-on: self-hosted
       - name: Print the Tag Triggered
         run: |
-          echo "testing tag"
+          echo "testing taasg"
 
