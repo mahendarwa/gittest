@@ -1,19 +1,13 @@
-name: Build on Tag Push for Release Branches
+name: "Test Cron Job"
 
 on:
-  push:
-
-    tags:
-
-      - 'release/*'  # Matches tags like release/v1.0.0, release/v2.0.0
+  schedule:
+    - cron: "*/5 * * * *"  # Run every 5 minutes
+  workflow_dispatch:  # Manually trigger the workflow
 
 jobs:
-  build:
-    runs-on: self-hosted
-
+  test-cron:
+    runs-on: ubuntu-latest
     steps:
-
-
-      - name: Print the Tag Triggered
-        run: |
-          echo "Tag Triggered"
+      - name: Print current time
+        run: echo "The cron job ran at $(date)"
